@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <h1>Oscilación de conductores verticales debido a cortocircuito</h1>
+
+    <p>Los conductores instalados en disposición vertical también conocido como disposición "bandera" pueden estar sujetos a oscilaciones verticales luego de producido un cortocicuito</p>
+
+    <img alt="bandera" src="/static/bandera.jpg" style="width:100%">
+
+    <p>Estas oscilaciones pueden ser críticas en las líneas de sub-transmisión y de distribución, mientras que en las líneas de transmisión no son usuales debido a la gran inercia de los conductores y a la disminución del nivel de cortocircuito con la longitud de la línea</p>
+
+    <p>La siguiente es una simulación de la oscilación vertical por cortocircuito de una línea con un conductor de 185 mm2 AAAC con una separación vertical de 1.50 m entre crucetas, un vano de 120 m y un nivel de cortocircuito de 6.3 kA que se aclara en 0.25 seg. El cortocircuito se produce aguas abajo de la ubicación física de este vano.</p>
+
+    <img alt="oscilacion1" src="/static/oscc1.jpg" style="width:100%">
+    <p></p>
+    <p>En el primer segundo la distancia vertical entre conductores aumenta y luego disminuye a un mínimo de 0.5 seg. un poco antes de los 2 segundos. La oscilación se mantendrá y disminuirá lentamente dependiendo de la fricción entre hebras del conductor y el pequeño efecto amortiguante de la presión del viento por la velocidad vertical de los conductores.</p>
+
+    <p>La siguiente simulación es con el mismo conductor y vano pero para un cortocircuito de 10 kA con un tiempo de aclaramiento de falla de 1/6"</p>
+
+    <img alt="oscilacion2" src="/static/oscc2.jpg" style="width:100%">
+
+    <p></p>
+    <p>En este caso la distancia vertical entre conductores aumenta como en el caso anterior pero luego los conductores hacen contacto físico a 1.73 segs. Los datos de simulación después de este tiempo son irrelevantes porque la real dinámica de los conductores seguirá un comportamiento inestable debido a las energías de choque que se didipan, a las transferencias de cantidad de movimiento, etc.</p>
+
+    <p>La situación se vuelve más crítica si se ha planificado un recierre antes de 1.73 segs. Si bien ya no existe cortocircuito (suponiendo que el cortocircuito fue generado por un contacto temporáneo), se volverá a tener un nuevo cortocircuito a los 1.73 sgs cuando los conductores choquen debido a la oscilación vertical.</p>
+
+    <p>En estas condiciones las cargas mecánicas sobre los conductores, cadenas de aisladores y postes aumentan de forma desproporcionada pudiendo ocasionar falla mecánica en el eslabón más débil.</p>
+
+
+    <p><b>Para simulaciones particulares utilizar el formulario de Contacto</p>
+
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Contacto
+{% endblock %}
+
+
+{% block main %}
+
+    <script>
+
+        function required()
+        {
+            var a = document.forms["Forma"]["name"].value;
+            var b = document.forms["Forma"]["apellidos"].value;
+            var c = document.forms["Forma"]["correo"].value;
+
+
+            if (a == "", b == "", c =="")
+            {
+              alert("Por favor ingrese todos los datos");
+              return false;
+            }
+            else
+            {
+              return greet(); 
+            }
+        }
+        function greet()
+        {
+            let name = document.querySelector('#name').value;
+            if (name === '')
+            {
+                name = ' ';
+            }
+            document.querySelector('#result').innerHTML = ' Gracias, ' + name + ', me pondré en contacto pronto';
+            return disableButton();
+        }
+        
+        function disableButton()
+        {
+          var submit = document.getElementById('submit');
+          submit.disabled = true;
+          submit.innerText = 'Enviado.....'
+        }
+    </script>
+
+        <div class="header">
+            <h4>Llenar los campos necesarios para iniciar contacto y responder las consultas o iniciar una colaboración o escribir al correo: cespivilla@gmail.com</h4><br>
+        </div>
+
+
+    <form name="Forma" autocomplete="off" action="/contacto" method="post" onsubmit="return required();">
+
+        <div class="row">
+          <div class="col">
+            <input autocomplete="off" autofocus type="text" class="form-control" name="name" id="name" placeholder="Nombre *">
+          </div>
+          <div class="col">
+            <input autocomplete="off" type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos *">
+          </div>
+        </div>
+
+        <div id="result">
+            
+        </div>
+        <br>
+
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Teléfono</label>
+          <input autocomplete="off" class="form-control" name="telefono" id="exampleFormControlInput0" type="text">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Dirección de correo *</label>
+          <input autocomplete="off" type="email" class="form-control" name="correo" id="exampleFormControlInput1" placeholder="nombre@ejemplo.com">
+        </div>
+
+
+
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Deje sus consultas u opiniones</label>
+          <textarea class="form-control" name="comentario" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <h7>* Campo obligatorio</h7>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <button type="submit" id="submit" class="btn btn-primary">Enviar</button>
+          </div>
+          <div class="col">
+            <input type="button" onclick="history.back()" name="volver al inicio" value="volver al inicio">
+          </div>
+        </div>
+        <br>
+
+   </form>
+
+{% endblock %}
+
+

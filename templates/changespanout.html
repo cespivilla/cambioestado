@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+       {% for line in result3 %}
+           <pre class="cn">{{ line }}</pre>
+       {% endfor %} 
+       <br>
+       <p>La simulación ha considerado que la progresiva izquierda no sufre desplazamiento, sin embargo, debido al cambio de la tensión mecánica en el conductor se tendrá un desplazamiento de la estructura en esa progresiva izquierda que dependerá de la rigidez de la misma.</p>
+       <p>Esto significa que un cambio en la variación de un vano en una estructura de anclaje termina afectando en forma de cascada a los vanos reguladores adyacentes, aunque en grado decreciente conforme se van alejando del vano primario donde se inició la variación del vano.</p>
+       <p><b>Para simulaciones completas de vanos reguladores complejos adyacentes y los efectos sobre las sobretensiones mecánicas y/o incrementos de flecha utilizar el formulario de Contacto.</p>
+
+{% endblock %}

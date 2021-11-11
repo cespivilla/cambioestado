@@ -1,0 +1,154 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Cameco
+{% endblock %}
+
+
+{% block main %}
+
+    <script>
+
+        function required()
+        {
+            var a = document.forms["Form"]["seccion"].value;
+            var b = document.forms["Form"]["diam"].value;
+            var c = document.forms["Form"]["masa"].value;
+            var d = document.forms["Form"]["rotura"].value;
+            var e = document.forms["Form"]["young"].value;
+            var f = document.forms["Form"]["dilat"].value;
+            var g = document.forms["Form"]["tempini"].value;
+            var h = document.forms["Form"]["esfini"].value;
+            var i = document.forms["Form"]["tempfin"].value;
+            var j = document.forms["Form"]["pv"].value;
+            var k = document.forms["Form"]["eh"].value;
+            var m = document.forms["Form"]["dha"].value;
+            var n = document.forms["Form"]["denshie"].value;
+
+
+            if (a == "", b == "", c == "", d == "", e == "", f == "", g == "", h == "", i == "", j == "", k == "", m == "", n == "")
+            {
+              alert("Por favor ingrese todos los datos");
+              return false;
+            }
+            else
+            {
+              return true;
+            }
+        }
+
+    </script>
+
+        <p>Esta sección no está pensada para ingenieros linieros con amplia experiencia en diseño y en cuyo caso hay probada capacidad para hacer cálculos
+           mecánicos basados en cambio de estado. En cambio para aquellos que están iniciándose en diseño y quieren probar sus propios softwares de cálculo
+           y por alguna razón no tienen acceso a programas del tipo PLS-CADD, pueden encontrar útil hacer una comparación de sus resultados.</p>
+        <p>Los resultados están basados en el programa CAMECO que fue desarrollado hace más de treinta años con la guía del Ing. Hernán Untiveros. El programa sigue 
+           usándose por varios referentes, incluyendo la regulación en Transmisión Secundaria.</p>
+
+
+        <div class="header">
+            <h5>Llenar los datos del conductor, los datos del tensado inicial y los parámetros de estado finales</h5><br>
+        </div>
+
+
+    <form name="Form" action="/cameco" method="post" onsubmit="return required();">
+
+        <h6>Datos del conductor</h6>
+        <div class="row">
+          <div class="col">
+            <label for="seccion">Sección(mm2)</label>
+            <input autofocus type="number" class="form-control" name="seccion" id="seccion" placeholder="Seccion (mm2)" max="5000." min="50.0" step="any">
+          </div>
+          <div class="col">
+            <label for="diam">Diámetro(mm)</label>
+            <input type="number" class="form-control" name="diam" id="diam" placeholder="Diámetro (mm)" max="50.0" min="8.0" step="any">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label for="masa">Masa longitudinal(kg/m)</label>
+            <input autofocus type="number" class="form-control" name="masa" id="masa" placeholder="Masa longitudinal(kg/m)" max="4.0" min="0.1" step="any">
+          </div>
+          <div class="col">
+            <label for="rotura">Tiro de rotura(kgf)</label>
+            <input type="number" class="form-control" name="rotura" id="rotura" placeholder="Tiro de rotura(kgf)" max="30000.0" min="1000.0" step="any">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label for="young">Módulo de Elasticidad(kgf/mm2)</label>
+            <input autofocus type="number" class="form-control" name="young" id="young" placeholder="Módulo de Elasticidad(kgf/mm2)" max="21000.0" min="5000.0" step="any">
+          </div>
+          <div class="col">
+            <label for="dilat">Coeficiente de dilatación lineal(1/°C)</label>
+            <input type="number" class="form-control" name="dilat" id="dilat" placeholder="Coeficiente de dilatación lineal(1/°C)" max="0.00003" min="0.00001" step="any">
+          </div>
+        </div>
+        <br>
+
+        <h6>Datos del tensado inicial</h6>
+        <div class="row">
+          <div class="col">
+            <label for="tempini">Temperatura inicial(°C)</label>
+            <input autofocus type="number" class="form-control" name="tempini" id="tempini" placeholder="Temperatura inicial(°C)" max="100.0" min="-5.0" step="any">
+          </div>
+          <div class="col">
+            <label for="esfini">Esfuerzo inicial(kgf/mm2)</label>
+            <input type="number" class="form-control" name="esfini" id="esfini" placeholder="Esfuerzo inicial(kgf/mm2)" max="10.0" min="0.5" step="any">
+          </div>
+        </div>
+        <br>
+
+        <h6>Datos del estado final</h6>
+        <div class="row">
+          <div class="col">
+            <label for="tempfin">Temperatura final(°C)</label>
+            <input autofocus type="number" class="form-control" name="tempfin" id="tempfin" placeholder="Temperatura final(°C)" max="100.0" min="-20.0" step="any">
+          </div>
+          <div class="col">
+            <label for="pv">Presión de viento(kgf/m2)</label>
+            <input type="number" class="form-control" name="pv" id="pv" placeholder="Presión de viento(kgf/m2)" max="120.0" min="0.0" step="any">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label for="eh">Espesor de hielo(mm)</label>
+            <input autofocus type="number" class="form-control" name="eh" id="eh" placeholder="Espesor de hielo(mm)" max="100.0" min="0.0" step="any">
+          </div>
+        </div>
+        <br>
+
+        <h6>Otros datos</h6>
+        <div class="row">
+          <div class="col">
+            <label for="dha">Relación desnivel/vano(adimensional solo hasta un máximo valor de 0.5)</label>
+            <input autofocus type="number" class="form-control" name="dha" id="dha" placeholder="Relación desnivel/vano" max="0.5" min="0.0" step="any">
+          </div>
+          <div class="col">
+            <label for="denshie">Densidad del hielo(gr/cm3; generalmente 0.913 gr/cm3 según CNE Perú)</label>
+            <input type="number" class="form-control" name="denshie" id="denshie" placeholder="Densidad del hielo(gr/cm3)" max="1.0" min="0.6" step="any">
+          </div>
+        </div>
+
+        <div id="result">
+            
+        </div>
+        <br>
+
+
+
+        <div class="row">
+          <div class="col">
+            <button type="submit" id="submit" class="btn btn-primary">Enviar</button>
+          </div>
+        </div>
+        <br>
+
+   </form>
+
+{% endblock %}
+
+

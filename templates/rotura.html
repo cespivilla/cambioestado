@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <h1>Cálculo de efectos debido a la rotura de conductores</h1>
+    <p>La rotura de conductores en un tramo de línea puede ocasionar consecuencias catastróficas en la explotación de la línea, la más perjudicial de ellas es el colapso completo o parcial de ese tramo de línea</p>
+    <img alt="rotura3" src="/static/rotura3.jpg" style="width:100%">
+    <p></p>
+    <p>Se calcula el estado de equilibrio inicial previo a la rotura, incluso considerando cargas atmosféricas que ocurran justo antes del evento de rotura y luego simular un vano particular en donde ocurra la rotura. Se obtiene los tenses mecánicos residuales y el desplazamiento horizontal de las cadenas de suspensión debido al desequilibrio ocasionado por el evento de rotura</p>
+    <p>Se llama la atención a lo crítico que puede ser este evento para el caso de líneas con múltiples sub-conductores. En general se considera que cuando existen sub-conductores la rotura completa de todos los sub-conductores tiene una probabilidad casi nula. Sin embargo un evento que resulta en los catastróficos resultados de una rotura completa de sub-conductores es la rotura de la cadena de suspensión.</p>
+    <p>Se analiza el caso de la línea Lehigh Sycamore 345 kV de la Iowa Power Company in Des Moines, Iowa, USA. Esta línea sufrió el colapso total entre las estructuras 51 y 119. La hipótesis más probable de la causa que ocasionó el evento fue la rotura de una cadena de suspensión angular en la estructura 99. Debido al vano entre las estructuras 98 y 99, los conductores cayeron al suelo con lo que el tense mecánico en ese vano se redujo a casi cero; esto es, los conductores no se rompieron pero el efecto fue equivalente a que si todos los sub-conductores se hubiesen roto simultáneamente.</p>
+    <p>En la siguiente imagen se observa cómo quedó el vano entre las estructuras 96 y 97. En color negro la situación pre-rotura y en rojo en condición de rotura.</p>
+    <img alt="rotura2" src="/static/rotura2.jpg" style="width:100%">
+    <p></p>
+    <p>En la siguiente imagen se observa cómo quedó el vano entre las estructuras 97 y 98. Se aprecia que el tense mecánico pico de 31.4 toneladas difícilmente podría haber sido soportada por estructuras bidimensionales diseñadas para soportar peso.</p>
+    <img alt="rotura1" src="/static/rotura1.jpg" style="width:100%">
+    <p></p>
+    <p>Este tense mecánico pico de 69 kips se compara bien con el valor de 63 kips simulado por el autor Reza Anjam del paper que analizó el evento.</p>
+    <p><b>Para simulaciones particulares utilizar el formulario de contacto</p>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Changespan
+{% endblock %}
+
+
+{% block main %}
+
+    <script>
+
+        function required()
+        {
+            var a = document.forms["Form"]["param"].value;
+            var b = document.forms["Form"]["delta"].value;
+
+            var x = (a == "" || b == "" )
+
+            if (x)
+            {
+              alert("Por favor ingrese todos los datos");
+              return false;
+            }
+            else
+            {
+              return true;
+            }
+        }
+
+    </script>
+
+        <h2>Cambio del tense mecánico del conductor por variación del vano</h2> 
+        <p></p>
+        <center><img src="/static/changespan.jpg" alt="VariacionVano" width="500" height="333"> </center>
+        <p></p>
+        <p>Se tiene un vano AB=a en el que está tendido un conductor con un tense T y parámetro de tensado C. Luego el vano sufre una variación en su longitud y se quiere conocer la nueva tensión mecánica en el conductor cuando no se ha producido ningún desplazamiento en la grapa de ese extremo del vano. Se asume que la progresiva izquierda no se desplaza</p> 
+        <p>La simulación está hecha para un conductor ACSR de 412 mm2 con una masa longitudinal de 1.62 kg/m. El vano inicial es de 450 m</p>
+        <p>Se puede hacer la simulación variando el parámetro inicial de tensado y el delta de desplazamiento del vano</p>
+
+
+
+        <div class="header">
+            <h5>Llenar parámetro del tensado inicial y valor del incremento de desplazamiento de la progresiva derecha del vano (delta a)</h5><br>
+        </div>
+
+
+    <form name="Form" action="/changespan" method="post" onsubmit="return required();">
+
+        <div class="row">
+          <div class="col">
+            <label for="param">Parámetro tensado(m)</label>
+            <input autofocus type="number" class="form-control" name="param" id="param" value="1901.23" placeholder="Parámetro (m)" max="2000." min="500.0" step="any">
+          </div>
+          <div class="col">
+            <label for="delta">Desplazamiento de progresiva derecha del vano (m)</label>
+            <input type="number" class="form-control" name="delta" id="delta" value="0.45" placeholder="Desplazamiento de progresiva derecha del vano (m)" max="2.0" min="-1.0" step="any">
+          </div>
+        </div>
+        <br>
+
+        <br>
+
+        <div id="result">
+            
+        </div>
+        <br>
+
+
+        <div class="row">
+          <div class="col">
+            <button type="submit" id="submit" class="btn btn-primary">Enviar</button>
+          </div>
+        </div>
+        <br>
+
+   </form>
+
+{% endblock %}
+
+

@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+       {% for line in result2 %}
+           <pre class="cn">{{ line }}</pre>
+       {% endfor %} 
+       <br>
+       <p>Los resultados de cambio de estado en un vano individual con cadenas de anclaje a ambos lados difieren del cálculo clásico de un vano individual con los extremos del conductor anclados a apoyos fijos.</p>
+       <p>Esto es debido al efecto del movimiento de las cadenas de anclaje según el valor del tense horizontal del conductor o conductores</p>
+
+{% endblock %}
