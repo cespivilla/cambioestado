@@ -26,12 +26,14 @@ nav .navbar-brand .blue
     color: #2b22d9;
 }
 
-div.a {
-  font-size: 10px;
-  font-weight: bold;
+h1 {
+  font-size: 20px;
 }
 
-div.b {
-  font-size: 8px;
-  font-weight: bold;
+h2 {
+  font-size: 18px;
+}
+
+p {
+  font-size: 15px;
 }
