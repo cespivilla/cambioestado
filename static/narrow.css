@@ -1,6 +1,37 @@
 
 
-* {
+* 
+{
+  background-image: url('fondo.jpg');
+}
+
+.box-spec {
+      padding: 1px;
+      margin-top:1px;
+    }
+
+{
   box-sizing: border-box;
 }
 
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: large;
+}
+
+/* colors for brand */
+nav .navbar-brand .blue
+{
+    color: #2b22d9;
+}
+
+div.a {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+div.b {
+  font-size: 8px;
+  font-weight: bold;
+}
