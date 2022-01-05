@@ -5,6 +5,10 @@
   background-image: url('fondo.jpg');
 }
 
+.box-spec {
+      padding: 20px;
+      margin-top:30px;
+    }
 
 nav .navbar-brand
 {
@@ -45,5 +49,13 @@ nav .navbar-brand .green
   font-family: "Courier New", monospace;
 }
 
+div.a {
+  font-size: 32px;
+  font-weight: bold;
+}
 
+div.b {
+  font-size: 24px;
+  font-weight: bold;
+}
 
