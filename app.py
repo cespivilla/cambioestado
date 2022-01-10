@@ -269,7 +269,9 @@ def changespan():
         file_path = "changespan.dat"
         g = Github(token)
         repo = g.get_repo("cespivilla/cambioestado")
-        data = session["todos"]
+        data = ','.join(map(str, session["todos"])
+        print("data type: ", type(data))
+        print("data: ", data)
         def push(path, message, content, branch, update=False):
             author = InputGitAuthor("cespivilla","cespivilla@gmail.com")
             source = repo.get_branch("main")
