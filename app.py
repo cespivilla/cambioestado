@@ -256,12 +256,14 @@ def changespan():
         if not param or float(param) < 500.0 or float(param) > 2000.0:
                 return render_template("error.html", message="No se ha indicado el parámetro o está fuera de rango")
         session["todos"].append(param)  
-        print("tipo session: ", type(session["todos"]))
-
+       
         delta = request.form.get("delta")
         if not delta or float(delta) < -1.0 or float(delta) > 2.0:
                 return render_template("error.html", message="No se ha indicado el desplazamiento o está fuera de rango")
         session["todos"].append(delta)  
+        
+        print("tipo session: ", type(session["todos"]))
+        print ("session[todos] ", session["todos"])
 
         token = os.getenv('GITHUB_TOKEN')
         file_path = "changespan.dat"
