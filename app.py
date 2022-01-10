@@ -262,9 +262,6 @@ def changespan():
                 return render_template("error.html", message="No se ha indicado el desplazamiento o está fuera de rango")
         session["todos"].append(delta)  
         
-        print("tipo session: ", type(session["todos"]))
-        print ("session[todos] ", session["todos"])
-
         token = os.getenv('GITHUB_TOKEN')
         file_path = "changespan.dat"
         g = Github(token)
