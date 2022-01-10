@@ -262,12 +262,19 @@ def changespan():
                 return render_template("error.html", message="No se ha indicado el desplazamiento o está fuera de rango")
         session["todos"].append(delta)  
 
-
-        file = open("/changespan.csv", "w")
-        writer = csv.writer(file)
-        writer.writerow(session["todos"])
-        file.close()
-
+        token = os.getenv('GITHUB_TOKEN')
+        file_path = "changespan.dat"
+        g = Github(token)
+        repo = g.get_repo("cespivilla/cambioestado")
+        data = session["todos"]
+        def push(path, message, content, branch, update=False):
+            author = InputGitAuthor("cespivilla","cespivilla@gmail.com")
+            source = repo.get_branch("main")
+            contents = repo.get_contents(path, ref=branch)  # Retrieve old file to get its SHA and path
+            repo.update_file(contents.path, message, content, contents.sha, branch=branch, author=author) 
+        # Add, commit and push branch
+        push(file_path, "Updating changespan.dat", data, "main", update=True)
+        
         subprocess.call("/changespan.exe")
 
         file = open("/changespan.out", "r")
