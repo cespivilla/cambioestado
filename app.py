@@ -279,7 +279,7 @@ def changespan():
         
         subprocess.call('changespan.exe', shell=True)
 
-        file = open("/changespan.out", "r")
+        file = open("changespan.out", "r")
         unilist = list(file)
   
         return render_template("changespanout.html", result3=unilist)
