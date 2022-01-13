@@ -277,7 +277,7 @@ def changespan():
         # Add, commit and push branch
         push(file_path, "Updating changespan.dat", data, "main", update=True)
         
-        subprocess.call(['changespan.exe'])
+        subprocess.call(['/app/changespan.exe'])
 
         file = open('changespan.out', "r")
         unilist = list(file)
