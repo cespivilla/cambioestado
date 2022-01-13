@@ -10,6 +10,7 @@ import csv
 import subprocess
 # import time
 import requests
+import shlex
 
 # Configure application
 app = Flask(__name__)
@@ -277,7 +278,7 @@ def changespan():
         # Add, commit and push branch
         push(file_path, "Updating changespan.dat", data, "main", update=True)
         
-        subprocess.call(['changespan'])
+        subprocess.call(shlex.split(changespan.exe), shell=True)
 
         file = open('changespan.out', "r")
         unilist = list(file)
