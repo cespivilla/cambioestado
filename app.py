@@ -10,6 +10,9 @@ import csv
 import subprocess
 # import time
 import requests
+import sys
+print ("viene sys")
+sys.executable
 
 # Configure application
 app = Flask(__name__)
