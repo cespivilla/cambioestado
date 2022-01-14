@@ -10,7 +10,7 @@ import csv
 import subprocess
 # import time
 import requests
-import shlex
+import uwsgi
 
 # Configure application
 app = Flask(__name__)
@@ -277,8 +277,8 @@ def changespan():
             repo.update_file(contents.path, message, content, contents.sha, branch=branch, author=author) 
         # Add, commit and push branch
         push(file_path, "Updating changespan.dat", data, "main", update=True)
-        
-        subprocess.call('changespan.exe', cwd='/app', shell=False)
+        ex = os.path.join(uwsgi.opt['home'], 'changespan.exe')
+        subprocess.run(ex)
 
         file = open('changespan.out', "r")
         unilist = list(file)
