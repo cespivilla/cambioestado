@@ -11,10 +11,10 @@ import subprocess
 # import time
 import requests
 import sys
-import cambioestado.app
+import appname.app
 print ("viene sys")
 print("sys: ", sys.executable)
-ex = os.path.dirname(app.instance_path)
+ex = os.path.dirname(cambioestado.app.instance_path)
 print("ex: ", ex)
 
 # Configure application
