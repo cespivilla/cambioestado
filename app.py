@@ -11,7 +11,7 @@ import subprocess
 # import time
 import requests
 import sys
-import appname.app
+
 print ("viene sys")
 print("sys: ", sys.executable)
 ex = os.path.dirname(cambioestado.app.instance_path)
