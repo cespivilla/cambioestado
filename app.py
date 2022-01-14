@@ -13,6 +13,8 @@ import requests
 import sys
 print ("viene sys")
 print("sys: ", sys.executable)
+ex = os.path.dirname(app.instance_path)
+print("ex: ", ex)
 
 # Configure application
 app = Flask(__name__)
