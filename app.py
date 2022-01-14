@@ -12,7 +12,7 @@ import subprocess
 import requests
 import sys
 print ("viene sys")
-sys.executable
+print("sys: ", sys.executable)
 
 # Configure application
 app = Flask(__name__)
