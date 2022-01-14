@@ -14,7 +14,7 @@ import sys
 
 print ("viene sys")
 print("sys: ", sys.executable)
-ex = os.path.dirname(cambioestado.app.instance_path)
+ex = os.path.dirname(cambioestado.instance_path)
 print("ex: ", ex)
 
 # Configure application
