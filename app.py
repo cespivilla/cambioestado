@@ -14,8 +14,7 @@ import sys
 
 print ("viene sys")
 print("sys: ", sys.executable)
-ex = os.path.join(sys.executable,'/changespan.exe')
-print("ex: ", ex)
+
 
 # Configure application
 app = Flask(__name__)
@@ -25,6 +24,9 @@ Session(app)
 
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
+
+ex = os.path.dirname(app.instance_path)
+print("ex: ", ex)
 
 todos = []
 
