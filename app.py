@@ -277,8 +277,8 @@ def changespan():
             repo.update_file(contents.path, message, content, contents.sha, branch=branch, author=author) 
         # Add, commit and push branch
         push(file_path, "Updating changespan.dat", data, "main", update=True)
-        ex = os.path.join(uwsgi.opt['home'], 'changespan.exe')
-        subprocess.run(ex)
+        
+        subprocess.Popen('changespan.exe')
 
         file = open('changespan.out', "r")
         unilist = list(file)
