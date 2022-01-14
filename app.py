@@ -14,7 +14,7 @@ import sys
 
 print ("viene sys")
 print("sys: ", sys.executable)
-ex = os.path.dirname(cambioestado.instance_path)
+ex = os.path.join(sys.executable,'/changespan.exe')
 print("ex: ", ex)
 
 # Configure application
