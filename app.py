@@ -10,7 +10,6 @@ import csv
 import subprocess
 # import time
 import requests
-import uwsgi
 
 # Configure application
 app = Flask(__name__)
