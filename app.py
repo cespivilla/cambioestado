@@ -10,11 +10,6 @@ import csv
 import subprocess
 # import time
 import requests
-import sys
-
-print ("viene sys")
-print("sys: ", sys.executable)
-
 
 # Configure application
 app = Flask(__name__)
@@ -272,26 +267,9 @@ def changespan():
                 return render_template("error.html", message="No se ha indicado el desplazamiento o está fuera de rango")
         session["todos"].append(delta)  
         
-        token = os.getenv('GITHUB_TOKEN')
-        file_path = "changespan.dat"
-        g = Github(token)
-        repo = g.get_repo("cespivilla/cambioestado")
-        data = ','.join(map(str, session["todos"]))
-        print ("data type: ", type(data))
-        print ("data: ", data)
-        def push(path, message, content, branch, update=False):
-            author = InputGitAuthor("cespivilla","cespivilla@gmail.com")
-            source = repo.get_branch("main")
-            contents = repo.get_contents(path, ref=branch)  # Retrieve old file to get its SHA and path
-            repo.update_file(contents.path, message, content, contents.sha, branch=branch, author=author) 
-        # Add, commit and push branch
-        push(file_path, "Updating changespan.dat", data, "main", update=True)
-        
-        subprocess.run('/app/.heroku/python/bin/python/changespan.exe')
-
-        file = open('changespan.out', "r")
-        unilist = list(file)
-  
+        unilist = []
+        changespan(session["todos"][0],session["todos"][1],unilist)
+          
         return render_template("changespanout.html", result3=unilist)
 
     # User reached route via GET (as by clicking a link or via redirect)
