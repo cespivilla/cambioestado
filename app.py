@@ -27,7 +27,7 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 ex = os.path.dirname(app.instance_path)
 print("ex: ", ex)
-exx=os.path.join(app.instance_path,'/changespan.exe')
+exx=os.path.join(ex,'/changespan.exe')
 print("exx: ", exx)
 
 todos = []
