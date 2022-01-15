@@ -287,7 +287,7 @@ def changespan():
         # Add, commit and push branch
         push(file_path, "Updating changespan.dat", data, "main", update=True)
         
-        subprocess.run(exx)
+        subprocess.run('/app/.heroku/python/bin/python/changespan.exe')
 
         file = open('changespan.out', "r")
         unilist = list(file)
