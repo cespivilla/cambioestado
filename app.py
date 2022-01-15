@@ -269,7 +269,7 @@ def changespan():
         session["todos"].append(delta)  
         
         unilist = []
-        changespan(session[float("todos"][0]),float(session["todos"][1]),unilist)
+        changespan(float(session["todos"][0]),float(session["todos"][1]),unilist)
           
         return render_template("changespanout.html", result3=unilist)
 
