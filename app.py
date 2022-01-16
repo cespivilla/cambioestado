@@ -5,7 +5,7 @@ from flask_session import Session
 from datetime import datetime
 # from decouple import config
 from github import Github, InputGitAuthor
-from logiciels import changespan
+from logiciels import cambiospan
 import os
 import csv
 import subprocess
@@ -20,11 +20,6 @@ Session(app)
 
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
-
-ex = os.path.dirname(app.instance_path)
-print("ex: ", ex)
-exx=os.path.join(ex,'/changespan.exe')
-print("exx: ", exx)
 
 todos = []
 
@@ -269,7 +264,7 @@ def changespan():
         session["todos"].append(delta)  
         
         unilist = []
-        changespan(float(session["todos"][0]),float(session["todos"][1]),unilist)
+        cambiospan(float(session["todos"][0]),float(session["todos"][1]),unilist)
           
         return render_template("changespanout.html", result3=unilist)
 
