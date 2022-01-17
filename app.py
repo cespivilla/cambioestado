@@ -219,7 +219,7 @@ def unispan():
         nsub = request.form.get("nsub")
         session["todos"].append(nsub)  
         
-        unilist = cambiospan(session["todos"])
+        unilist = solospan(session["todos"])
 
         return render_template("unispanout.html", result2=unilist)
 
