@@ -5,7 +5,7 @@ from flask_session import Session
 from datetime import datetime
 # from decouple import config
 from github import Github, InputGitAuthor
-from logiciels import cambiospan
+from logiciels import cambiospan, solospan
 import os
 import csv
 import subprocess
@@ -218,26 +218,8 @@ def unispan():
         session["todos"].append(pcad) 
         nsub = request.form.get("nsub")
         session["todos"].append(nsub)  
-
-
-        file = open("unispan.csv", "w")
-        writer = csv.writer(file)
-        # writer.writerow((sec, fi, mass, mod, alfa, temp0, param0, tempf, wp, ice, pehie, pg1, cot1, pg2, cot2, lcad, pcad, nsub))
-        writer.writerow(session["todos"])
-        file.close()
-
-        # t2 = time.time()
-
-        subprocess.call("unispan.exe")
-
-        # t3 = time.time()
-
-        file = open("unispan.out", "r")
-        unilist = list(file)
-  
-        # t4 = time.time()
-
-        # print ("t2-t1, t3-t2, t4-t3  ", t2-t1, t3-t2, t4-t3)
+        
+        unilist = cambiospan(session["todos"])
 
         return render_template("unispanout.html", result2=unilist)
 
@@ -263,8 +245,7 @@ def changespan():
                 return render_template("error.html", message="No se ha indicado el desplazamiento o está fuera de rango")
         session["todos"].append(delta)  
         
-        unilist = []
-        cambiospan(float(session["todos"][0]),float(session["todos"][1]),unilist)
+        unilist = cambiospan(float(session["todos"][0]),float(session["todos"][1]))
           
         return render_template("changespanout.html", result3=unilist)
 
