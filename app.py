@@ -138,6 +138,8 @@ def cameco():
         session["todos"].append(denshie)  
    
         mylist = changetat(session["todos"])
+    
+        print(mylist)
 
         return render_template("camecout.html", result=mylist)
 
