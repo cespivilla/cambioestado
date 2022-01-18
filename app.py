@@ -5,7 +5,7 @@ from flask_session import Session
 from datetime import datetime
 # from decouple import config
 from github import Github, InputGitAuthor
-from logiciels import cambiospan, solospan
+from logiciels import cambiospan, solospan, changetat
 import os
 import csv
 import subprocess
@@ -136,27 +136,8 @@ def cameco():
         session["todos"].append(dha)  
         denshie = request.form.get("denshie")
         session["todos"].append(denshie)  
-
-        # Opens a file for writing, creates the file if it does not exist
-        file = open("cameco.csv", "w")
-        writer = csv.writer(file)
-        # writer.writerow((seccion, diam, masa, rotura, young, dilat, tempini, esfini, tempfin, pv, eh, dha, denshie))
-        writer.writerow(session["todos"])
-        print ("session[todos] ", session["todos"])
-        file.close()
-
-        # t2 = time.time()
-
-        subprocess.call("cameco.exe")
-
-        # t3 = time.time()
-
-        file = open("cameco.out", "r")
-        mylist = list(file)
-  
-        # t4 = time.time()
-
-        # print ("t2-t1, t3-t2, t4-t3  ", t2-t1, t3-t2, t4-t3)
+   
+        mylist = changetat(session["todos"])
 
         return render_template("camecout.html", result=mylist)
 
