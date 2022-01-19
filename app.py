@@ -23,10 +23,6 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 todos = []
 
-cwd = os.getcwd()  # Get the current working directory (cwd)
-files = os.listdir(cwd)  # Get all the files in that directory
-print("Files in %r: %s" % (cwd, files))
-
 def get_userdata(ip_address):
     try:
         response = requests.get("http://ip-api.com/json/{}".format(ip_address))
@@ -118,8 +114,6 @@ def cameco():
                 return render_template("error.html", message="No se ha indicado el módulo de elasticidad o está fuera de rango")
         session["todos"].append(young)  
 
-        # t1 = time.time()
-
         dilat= request.form.get("dilat")
         session["todos"].append(dilat)  
         tempini = request.form.get("tempini")
@@ -139,8 +133,6 @@ def cameco():
    
         mylist = changetat(session["todos"])
     
-        print(mylist)
-
         return render_template("camecout.html", result=mylist)
 
     # User reached route via GET (as by clicking a link or via redirect)
@@ -168,8 +160,6 @@ def unispan():
         if not mass or float(mass) < 0.1 or float(mass) > 4.0:
                 return render_template("error.html", message="No se ha indicado la masa longitudinal o está fuera de rango")
         session["todos"].append(mass)  
-
-        # t1 = time.time()
 
         mod = request.form.get("mod")
         session["todos"].append(mod)  
