@@ -49,7 +49,7 @@ def index():
 
     country, region, latitud, longitud = get_userdata(ip_address)
 
-    if country == "Peru" or country == "Chile":
+    if country == "Peru" or country == "Chile" or country == "Argentina":
         """Show presentacion principal"""
         print ("token index")
         token = os.getenv('GITHUB_TOKEN')
