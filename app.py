@@ -232,6 +232,10 @@ def changespan():
 @app.route("/rotura")
 def rotura():
         return render_template("rotura.html")
+    
+@app.route("/crucetamad")
+def crucetamad():
+        return render_template("crucetamad.html")
 
 @app.route("/oscila")
 def oscila():
