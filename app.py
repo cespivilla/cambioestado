@@ -236,7 +236,11 @@ def rotura():
 @app.route("/crucetamad")
 def crucetamad():
         return render_template("crucetamad.html")
-
+    
+@app.route("/planilla")
+def planilla():
+        return render_template("planilla.html")
+    
 @app.route("/oscila")
 def oscila():
         return render_template("oscila.html")
